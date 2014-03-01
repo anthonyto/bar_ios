@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LandingPageViewController.h
 //  bar
 //
 //  Created by Anthony To on 2/28/14.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-{
-	
-}
-
+@interface LandingPageViewController : UIViewController
 
 @end

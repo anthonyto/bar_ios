@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0499B46C18C1935F00D6C13F /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499B46B18C1935F00D6C13F /* LandingPageViewController.m */; };
+		0499B46F18C193A200D6C13F /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499B46E18C193A200D6C13F /* ClassViewController.m */; };
 		04D3A5AD18C174A8005263E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5AC18C174A8005263E5 /* Foundation.framework */; };
 		04D3A5AF18C174A8005263E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5AE18C174A8005263E5 /* CoreGraphics.framework */; };
 		04D3A5B118C174A8005263E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5B018C174A8005263E5 /* UIKit.framework */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0499B46A18C1935F00D6C13F /* LandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPageViewController.h; sourceTree = "<group>"; };
+		0499B46B18C1935F00D6C13F /* LandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageViewController.m; sourceTree = "<group>"; };
+		0499B46D18C193A200D6C13F /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
+		0499B46E18C193A200D6C13F /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
 		04D3A5A918C174A8005263E5 /* bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3A5AC18C174A8005263E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04D3A5AE18C174A8005263E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,6 +122,10 @@
 				04D3A5BC18C174A8005263E5 /* AppDelegate.m */,
 				04D3A5BE18C174A8005263E5 /* Main.storyboard */,
 				04D3A5C118C174A8005263E5 /* ViewController.h */,
+				0499B46A18C1935F00D6C13F /* LandingPageViewController.h */,
+				0499B46D18C193A200D6C13F /* ClassViewController.h */,
+				0499B46E18C193A200D6C13F /* ClassViewController.m */,
+				0499B46B18C1935F00D6C13F /* LandingPageViewController.m */,
 				04D3A5C218C174A8005263E5 /* ViewController.m */,
 				04D3A5C418C174A8005263E5 /* Images.xcassets */,
 				04D3A5B318C174A8005263E5 /* Supporting Files */,
@@ -250,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D3A5C318C174A8005263E5 /* ViewController.m in Sources */,
+				0499B46F18C193A200D6C13F /* ClassViewController.m in Sources */,
 				04D3A5BD18C174A8005263E5 /* AppDelegate.m in Sources */,
 				04D3A5B918C174A8005263E5 /* main.m in Sources */,
+				0499B46C18C1935F00D6C13F /* LandingPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +472,7 @@
 				04D3A5DD18C174A9005263E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04D3A5DE18C174A9005263E5 /* Build configuration list for PBXNativeTarget "barTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +481,7 @@
 				04D3A5E018C174A9005263E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
