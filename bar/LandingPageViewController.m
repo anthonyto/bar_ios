@@ -48,13 +48,13 @@
         if(snapshot.value == [NSNull null])
         {
             classTextField.layer.borderColor=[[UIColor redColor]CGColor];
-            classTextField.layer.borderWidth=1.0;
+            classTextField.layer.borderWidth=0.5;
             classLabel.text=@"Class does not exist.";
         }
         else if (![classTextField.text length])
         {
             classTextField.layer.borderColor=[[UIColor redColor]CGColor];
-            classTextField.layer.borderWidth=1.0;
+            classTextField.layer.borderWidth=0.5;
             classLabel.text=@"No class entered.";
         }
         else

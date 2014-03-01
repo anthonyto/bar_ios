@@ -16,6 +16,7 @@
     IBOutlet UILabel *scoreLabel;
     IBOutlet UISlider *slider;
     IBOutlet UILabel *classAverageLabel;
+    IBOutlet UIProgressView *aveScores;
 }
 
 @property (nonatomic, assign) NSInteger sliderValue;

@@ -37,8 +37,12 @@
     slider.maximumValue = 100;
     slider.value = 50;
     slider.continuous = NO;
-    scoreLabel.text = @"50";
     self.sliderValue = 50;
+    
+    aveScores.progress = .5;
+    
+    
+//    scoreLabel.text = @"50";
     classLabel.text = self.className;
 }
 
@@ -49,35 +53,33 @@
 
 - (IBAction)changeSliderValue:(id)sender
 {
-    NSLog(@"%@", self.className);
+    // Get device UID
     UIDevice *device = [UIDevice currentDevice];
     self.uid = [[device identifierForVendor]UUIDString];
-    NSLog(@"UID in the slider change: %@", self.uid);
+    
+    // Set slider stuff
     self.sliderValue = slider.value;
-    
-    // Set slider view to reflect sliderValue
     [slider setValue:self.sliderValue animated:YES];
-
-    // Update the label view to reflect updated sliderValue
-	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
+//	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
     
 
-    // Begin HTTP
+    // Begin HTTP request
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/event?event=%@&uid=%d&score=%d", self.className, 200, self.sliderValue]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    
     [connection start];
     
-    NSLog(@"Before firebase");
-    // Listen to class average and update THIS IS BREAKING SHIT
+    // Listen realtime for class average from firebase
     Firebase* scoreRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://blistering-fire-5490.firebaseio.com/class/%@/score", self.className]];
-    [scoreRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        classAverageLabel.text = [NSString stringWithFormat:@"Average is %@", snapshot.value];
-        NSLog(@"Snapshot Data Value: %@", snapshot.value);
+    [scoreRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot)
+    {
+        NSLog(@"%@", snapshot.value);
+        float floatVal = (snapshot.value == [NSNull null] ? 0 : [snapshot.value floatValue]);
+//        classAverageLabel.text = [NSString stringWithFormat:@"Average is %@", snapshot.value];
+        // Update progress bar
+        aveScores.progress = floatVal/100;
     }];
-    NSLog(@"After firebase");
+    
 }
 
 // Used for HTTP request
@@ -88,18 +90,15 @@
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-        NSLog(@"DRD");
     [_fapiReceiver appendData:data];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connDFL");
     NSError *error = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:_fapiReceiver options:NSJSONReadingAllowFragments error:&error];
+//    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:_fapiReceiver options:NSJSONReadingAllowFragments error:&error];
     
     [connection cancel];
-    NSLog(@"CDFL Done");
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
