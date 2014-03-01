@@ -34,11 +34,11 @@
     _fapiReceiver = [[NSMutableData alloc] init];
 		
     slider.minimumValue = 0;
-    slider.maximumValue = 10;
-    slider.value = 5;
+    slider.maximumValue = 100;
+    slider.value = 50;
     slider.continuous = NO;
-    scoreLabel.text = @"5";
-    self.sliderValue = 5;
+    scoreLabel.text = @"50";
+    self.sliderValue = 50;
     classLabel.text = self.className;
 }
 
