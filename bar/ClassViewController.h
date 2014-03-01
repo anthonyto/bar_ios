@@ -17,9 +17,10 @@
     IBOutlet UISlider *slider;
 }
 
-//@property (strong, nonatomic) NSMutableData *fapiReceiver;
 @property (nonatomic, assign) NSInteger sliderValue;
-@property (nonatomic) NSString *className;
+@property (nonatomic) NSString* className;
+@property (strong, nonatomic) NSMutableData* fapiReceiver;
+@property (nonatomic, assign) NSString* uid;
 
 
 - (IBAction)changeSliderValue:(id)sender;
