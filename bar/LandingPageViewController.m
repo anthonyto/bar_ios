@@ -8,7 +8,7 @@
 
 #import "LandingPageViewController.h"
 #import <Firebase/Firebase.h>
-//#import <QuartzCore/QuartzCore.h>
+#import "ClassViewController.h"
 
 
 @interface LandingPageViewController ()
@@ -60,16 +60,23 @@
         else
         {
             [self performSegueWithIdentifier:@"validClassNameToClassView" sender:sender];
+
         }
     }];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)sendClassNameSegue sender:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([sendClassNameSegue.identifier isEqualToString:@"sendClassNameSegue"])
+    NSLog(@"Foo");
+//    if([segue.identifier isEqualToString:@"sendClassNameSegue"])
+//    {
+//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+//        ClassViewController *controller = (ClassViewController *)navController.topViewController;
+//        controller.className = @"foo";
+//    }
+    if([segue.identifier isEqualToString:@"validClassNameToClassView"])
     {
-        UINavigationController *navController = (UINavigationController *)sendClassNameSegue.destinationViewController;
-        ClassViewController *controller = (ClassViewController *)navController.topViewController;
+        ClassViewController *controller = (ClassViewController *)segue.destinationViewController;
         controller.className = classTextField.text;
     }
 }

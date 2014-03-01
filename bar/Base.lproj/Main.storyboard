@@ -62,7 +62,6 @@
                         <outlet property="classTextField" destination="sYH-18-lJT" id="BMQ-Ph-c4z"/>
                         <outlet property="joinButton" destination="NAZ-7s-IHK" id="34B-Zu-Pa9"/>
                         <segue destination="hCK-W9-tvH" kind="push" identifier="validClassNameToClassView" id="fh9-nA-kdt"/>
-                        <segue destination="hCK-W9-tvH" kind="push" identifier="sendClassNameSegue" id="OZO-GU-iEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3o-jd-duK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,8 +87,8 @@
                                     <action selector="changeSliderValue:" destination="hCK-W9-tvH" eventType="valueChanged" id="Pq7-JL-gis"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIC-y5-Bl6">
-                                <rect key="frame" x="139" y="217" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIC-y5-Bl6">
+                                <rect key="frame" x="152" y="211" width="17" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -104,8 +103,8 @@
                                     <segue destination="aBM-VM-faU" kind="push" identifier="validClassNameToClassView" id="ifY-Fm-xwD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="foo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl0-aK-OVg">
-                                <rect key="frame" x="101" y="124" width="119" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl0-aK-OVg">
+                                <rect key="frame" x="120" y="118" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -132,6 +131,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ifY-Fm-xwD"/>
-        <segue reference="OZO-GU-iEe"/>
     </inferredMetricsTieBreakers>
 </document>

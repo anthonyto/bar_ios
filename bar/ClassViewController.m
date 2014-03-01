@@ -46,7 +46,7 @@
 
 - (IBAction)changeSliderValue:(id)sender
 {
-    
+    NSLog(@"%@", self.className);
     self.sliderValue = slider.value;
     
     // Set slider view to reflect sliderValue
