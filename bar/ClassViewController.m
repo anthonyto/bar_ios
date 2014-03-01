@@ -64,19 +64,7 @@
 
     // Begin HTTP
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/event?event=%@&uid=%d&score=%d", self.className, 200, self.sliderValue]];
-//    NSURL *url = [[NSURL alloc] initWithString:[@"http://clickerfire.herokuapp.com/event"]];
-//    NSString *post = [NSString stringWithFormat:@"event=%@&uid=%@&score=%d", self.className, self.uid, self.sliderValue];
-//    NSString *post = [NSString stringWithFormat:@"event=%@&uid=%d&score=%d", self.className, 200, self.sliderValue];
-//    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-//    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/event"]]];
-//    [request setHTTPMethod:@"POST"];
-//    NSMutableData *body = [[NSMutableData alloc] init];
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-//    [request setHTTPBody:postData];
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     
@@ -84,11 +72,11 @@
     
     NSLog(@"Before firebase");
     // Listen to class average and update THIS IS BREAKING SHIT
-//    Firebase* scoreRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://blistering-fire-5490.firebaseio.com/class/%@", self.className]];
-////    [[scoreRef childByAppendingPath:@"score"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
-//    [scoreRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-//        classAverageLabel.text = snapshot.value;
-//    }];
+    Firebase* scoreRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://blistering-fire-5490.firebaseio.com/class/%@/score", self.className]];
+    [scoreRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        classAverageLabel.text = [NSString stringWithFormat:@"Average is %@", snapshot.value];
+        NSLog(@"Snapshot Data Value: %@", snapshot.value);
+    }];
     NSLog(@"After firebase");
 }
 
