@@ -7,6 +7,8 @@
 //
 
 #import "LandingPageViewController.h"
+#import <Firebase/Firebase.h>
+
 
 @interface LandingPageViewController ()
 
@@ -35,4 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)joinButtonPressed:(id)sender
+{
+    Firebase* classChecker = [[Firebase alloc] initWithUrl:@[NSString stringWithFormat:@"https://resplendent-fire-2962.firebaseio.com/class/%s/students", classLabel];
+
+}
 @end

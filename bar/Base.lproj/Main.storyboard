@@ -44,12 +44,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAZ-7s-IHK">
-                                <rect key="frame" x="196" y="222" width="30" height="30"/>
+                                <rect key="frame" x="197" y="222" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="joinButtonPressed:" destination="aBM-VM-faU" eventType="touchUpInside" id="tGR-Bi-EpV"/>
                                     <segue destination="hCK-W9-tvH" kind="push" id="bsj-NI-kfJ"/>
                                 </connections>
                             </button>
@@ -57,6 +58,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hgs-BH-cBS"/>
+                    <connections>
+                        <outlet property="classLabel" destination="sYH-18-lJT" id="oCH-dS-Zx0"/>
+                        <outlet property="joinButton" destination="NAZ-7s-IHK" id="34B-Zu-Pa9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3o-jd-duK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

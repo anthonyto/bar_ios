@@ -10,7 +10,7 @@
 
 @interface ClassViewController ()
 {
-    NSMutableData *fapiReceiver;
+//    NSMutableData *fapiReceiver;
 }
 
 @end
@@ -30,13 +30,17 @@
 {
     [super viewDidLoad];
     
-    fapiReceiver = [[NSMutableData alloc] init];
+//    fapiReceiver = [[NSMutableData alloc] init];
+    
+    // Create a reference to a firebase location
+    Firebase* fapi = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseIO.com"];
 		
     slider.minimumValue = 0;
     slider.maximumValue = 10;
     slider.value = 5;
     slider.continuous = NO;
     scoreLabel.text = @"5";
+    self.sliderValue = 5;
 		
 	// Do any additional setup after loading the view.
 }
@@ -49,39 +53,18 @@
 
 - (IBAction)changeSliderValue:(id)sender 
 {
-	int sliderValue;
-    sliderValue = lroundf(slider.value);
-    [slider setValue:sliderValue animated:YES];
+    self.sliderValue = slider.value;
+    [slider setValue:self.sliderValue animated:YES];
 	NSLog(@"Slider Value: %f: ", slider.value);
-	[scoreLabel setText:[NSString stringWithFormat:@"%d", sliderValue]];
+	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
     
-    NSURL *url = [[]
+    // Get a reference to the users score location
+    Firebase* scoreRef = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseio.com/class/stats102/students"];
+
+    [[scoreRef childByAppendingPath:@"to"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
+//    [[scoreRef childByAppendingPath:@"to"] setValue:self.sliderValue];
 }
 
-#pragma mark NSURLConnection Methods
-
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    [fapiReceiver setLength:0];
-}
-
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [fapiReceiver appendData:data];
-}
-
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSError *error = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:fapiReceiver options:NSJSONReadingAllowFragments error:&error];
-    
-    [connection cancel];
-}
-
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"Error During Connection: %@", [error description]);
-}
 @end
 
 

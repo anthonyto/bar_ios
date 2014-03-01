@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0499B46C18C1935F00D6C13F /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499B46B18C1935F00D6C13F /* LandingPageViewController.m */; };
 		0499B46F18C193A200D6C13F /* ClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499B46E18C193A200D6C13F /* ClassViewController.m */; };
+		0499B47118C1B0BB00D6C13F /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47018C1B0BB00D6C13F /* Firebase.framework */; };
+		0499B47318C1B0D500D6C13F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47218C1B0D500D6C13F /* libicucore.dylib */; };
+		0499B47518C1B0DE00D6C13F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47418C1B0DE00D6C13F /* libc++.dylib */; };
+		0499B47718C1B0E500D6C13F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47618C1B0E500D6C13F /* CFNetwork.framework */; };
+		0499B47918C1B0EE00D6C13F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47818C1B0EE00D6C13F /* Security.framework */; };
+		0499B47B18C1B0F600D6C13F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0499B47A18C1B0F600D6C13F /* SystemConfiguration.framework */; };
 		04D3A5AD18C174A8005263E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5AC18C174A8005263E5 /* Foundation.framework */; };
 		04D3A5AF18C174A8005263E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5AE18C174A8005263E5 /* CoreGraphics.framework */; };
 		04D3A5B118C174A8005263E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3A5B018C174A8005263E5 /* UIKit.framework */; };
@@ -40,6 +46,12 @@
 		0499B46B18C1935F00D6C13F /* LandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageViewController.m; sourceTree = "<group>"; };
 		0499B46D18C193A200D6C13F /* ClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassViewController.h; sourceTree = "<group>"; };
 		0499B46E18C193A200D6C13F /* ClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassViewController.m; sourceTree = "<group>"; };
+		0499B47018C1B0BB00D6C13F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Frameworks/Firebase.framework; sourceTree = "<group>"; };
+		0499B47218C1B0D500D6C13F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		0499B47418C1B0DE00D6C13F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		0499B47618C1B0E500D6C13F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0499B47818C1B0EE00D6C13F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0499B47A18C1B0F600D6C13F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04D3A5A918C174A8005263E5 /* bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3A5AC18C174A8005263E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04D3A5AE18C174A8005263E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,6 +78,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0499B47B18C1B0F600D6C13F /* SystemConfiguration.framework in Frameworks */,
+				0499B47918C1B0EE00D6C13F /* Security.framework in Frameworks */,
+				0499B47718C1B0E500D6C13F /* CFNetwork.framework in Frameworks */,
+				0499B47518C1B0DE00D6C13F /* libc++.dylib in Frameworks */,
+				0499B47318C1B0D500D6C13F /* libicucore.dylib in Frameworks */,
+				0499B47118C1B0BB00D6C13F /* Firebase.framework in Frameworks */,
 				04D3A5AF18C174A8005263E5 /* CoreGraphics.framework in Frameworks */,
 				04D3A5B118C174A8005263E5 /* UIKit.framework in Frameworks */,
 				04D3A5AD18C174A8005263E5 /* Foundation.framework in Frameworks */,
@@ -107,6 +125,12 @@
 		04D3A5AB18C174A8005263E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0499B47A18C1B0F600D6C13F /* SystemConfiguration.framework */,
+				0499B47818C1B0EE00D6C13F /* Security.framework */,
+				0499B47618C1B0E500D6C13F /* CFNetwork.framework */,
+				0499B47418C1B0DE00D6C13F /* libc++.dylib */,
+				0499B47218C1B0D500D6C13F /* libicucore.dylib */,
+				0499B47018C1B0BB00D6C13F /* Firebase.framework */,
 				04D3A5AC18C174A8005263E5 /* Foundation.framework */,
 				04D3A5AE18C174A8005263E5 /* CoreGraphics.framework */,
 				04D3A5B018C174A8005263E5 /* UIKit.framework */,
@@ -390,9 +414,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/anthonyto/Developer/Xcode\\ Projects/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bar/bar-Prefix.pch";
 				INFOPLIST_FILE = "bar/bar-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +432,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/anthonyto/Developer/Xcode\\ Projects/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bar/bar-Prefix.pch";
 				INFOPLIST_FILE = "bar/bar-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Firebase/Firebase.h>
 
 @interface ClassViewController : UIViewController
 {
@@ -14,10 +15,11 @@
     IBOutlet UILabel *classLabel;
     IBOutlet UILabel *scoreLabel;
     IBOutlet UISlider *slider;
-    
 }
 
-@property (strong, nonatomic) NSMutableData *fapiReceiver;
+//@property (strong, nonatomic) NSMutableData *fapiReceiver;
+@property (nonatomic, assign) NSInteger sliderValue;
+
 
 - (IBAction)changeSliderValue:(id)sender;
 

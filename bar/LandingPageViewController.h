@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface LandingPageViewController : UIViewController
+{
+    
+    IBOutlet UITextField *classLabel;
+    IBOutlet UIButton *joinButton;
+}
+- (IBAction)joinButtonPressed:(id)sender;
 
 @end
