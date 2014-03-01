@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClassViewController.h"
 
 @interface LandingPageViewController : UIViewController
 {
     
-    IBOutlet UITextField *classLabel;
+    IBOutlet UILabel *classLabel;
     IBOutlet UIButton *joinButton;
+    IBOutlet UITextField *classTextField;
 }
 - (IBAction)joinButtonPressed:(id)sender;
+@property (nonatomic, assign) NSString *className;
 
 @end

@@ -19,6 +19,7 @@
 
 //@property (strong, nonatomic) NSMutableData *fapiReceiver;
 @property (nonatomic, assign) NSInteger sliderValue;
+@property (nonatomic) NSString *className;
 
 
 - (IBAction)changeSliderValue:(id)sender;

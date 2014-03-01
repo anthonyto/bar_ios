@@ -8,9 +8,10 @@
 
 #import "ClassViewController.h"
 
+
 @interface ClassViewController ()
 {
-//    NSMutableData *fapiReceiver;
+
 }
 
 @end
@@ -20,8 +21,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self){
     }
     return self;
 }
@@ -29,11 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    fapiReceiver = [[NSMutableData alloc] init];
-    
-    // Create a reference to a firebase location
-    Firebase* fapi = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseIO.com"];
 		
     slider.minimumValue = 0;
     slider.maximumValue = 10;
@@ -41,28 +36,29 @@
     slider.continuous = NO;
     scoreLabel.text = @"5";
     self.sliderValue = 5;
-		
-	// Do any additional setup after loading the view.
+    classLabel.text = self.className;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)changeSliderValue:(id)sender 
+- (IBAction)changeSliderValue:(id)sender
 {
+    
     self.sliderValue = slider.value;
-    [slider setValue:self.sliderValue animated:YES];
-	NSLog(@"Slider Value: %f: ", slider.value);
+    
+    // Set slider view to reflect sliderValue
+    [slider setValue:slider.value animated:YES];
+    
+    // Update the label view to reflect updated sliderValue
 	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
     
     // Get a reference to the users score location
-    Firebase* scoreRef = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseio.com/class/stats102/students"];
+//    Firebase* scoreRef = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseio.com/class/stats101/students/10"];
 
-    [[scoreRef childByAppendingPath:@"to"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
-//    [[scoreRef childByAppendingPath:@"to"] setValue:self.sliderValue];
+//    [[scoreRef childByAppendingPath:@"to"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
 }
 
 @end

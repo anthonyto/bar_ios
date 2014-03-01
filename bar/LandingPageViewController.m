@@ -8,6 +8,7 @@
 
 #import "LandingPageViewController.h"
 #import <Firebase/Firebase.h>
+//#import <QuartzCore/QuartzCore.h>
 
 
 @interface LandingPageViewController ()
@@ -28,7 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+//    self.view.backgroundColor = [UIColor colorWith]
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +42,35 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
-    Firebase* classChecker = [[Firebase alloc] initWithUrl:@[NSString stringWithFormat:@"https://resplendent-fire-2962.firebaseio.com/class/%s/students", classLabel];
+    self.className = classTextField.text;
+    Firebase* classChecker = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://resplendent-fire-2962.firebaseio.com/class/%@", _className]];
+    [classChecker observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if(snapshot.value == [NSNull null])
+        {
+            classTextField.layer.borderColor=[[UIColor redColor]CGColor];
+            classTextField.layer.borderWidth=1.0;
+            classLabel.text=@"Class does not exist.";
+        }
+        else if (![classTextField.text length])
+        {
+            classTextField.layer.borderColor=[[UIColor redColor]CGColor];
+            classTextField.layer.borderWidth=1.0;
+            classLabel.text=@"No class entered.";
+        }
+        else
+        {
+            [self performSegueWithIdentifier:@"validClassNameToClassView" sender:sender];
+        }
+    }];
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)sendClassNameSegue sender:(id)sender
+{
+    if([sendClassNameSegue.identifier isEqualToString:@"sendClassNameSegue"])
+    {
+        UINavigationController *navController = (UINavigationController *)sendClassNameSegue.destinationViewController;
+        ClassViewController *controller = (ClassViewController *)navController.topViewController;
+        controller.className = classTextField.text;
+    }
 }
 @end
