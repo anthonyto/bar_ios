@@ -43,7 +43,7 @@
 - (IBAction)joinButtonPressed:(id)sender
 {
     self.className = classTextField.text;
-    Firebase* classChecker = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://resplendent-fire-2962.firebaseio.com/class/%@", _className]];
+    Firebase* classChecker = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://blistering-fire-5490.firebaseio.com/class/%@", _className]];
     [classChecker observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if(snapshot.value == [NSNull null])
         {

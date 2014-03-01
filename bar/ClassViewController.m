@@ -12,7 +12,7 @@
 
 @interface ClassViewController ()
 {
-    NSMutableData *fapiReceiver;
+    NSMutableData *_fapiReceiver;
 }
 
 @end
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    fapiReceiver = [[NSMutableData alloc] init];
+    _fapiReceiver = [[NSMutableData alloc] init];
 		
     slider.minimumValue = 0;
     slider.maximumValue = 10;
@@ -60,37 +60,58 @@
 
     // Update the label view to reflect updated sliderValue
 	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
+    
 
     // Begin HTTP
-//    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/create?event=%@&uid=%@&score=%d",
-//                                                self.className, self.uid, self.sliderValue]];
-//    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:url];
-//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:req delegate:self];
-//    [connection start];
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/event?event=%@&uid=%d&score=%d", self.className, 200, self.sliderValue]];
+//    NSURL *url = [[NSURL alloc] initWithString:[@"http://clickerfire.herokuapp.com/event"]];
+//    NSString *post = [NSString stringWithFormat:@"event=%@&uid=%@&score=%d", self.className, self.uid, self.sliderValue];
+//    NSString *post = [NSString stringWithFormat:@"event=%@&uid=%d&score=%d", self.className, 200, self.sliderValue];
+//    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://clickerfire.herokuapp.com/event"]]];
+//    [request setHTTPMethod:@"POST"];
+//    NSMutableData *body = [[NSMutableData alloc] init];
+//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
+//    [request setHTTPBody:postData];
+//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    // Get a reference to the users score location
-    Firebase* scoreRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://fiery-fire-2615.firebaseio.com/class/%@/students/%@", self.className, self.uid]];
-    [[scoreRef childByAppendingPath:@"score"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
+    
+    [connection start];
+    
+    NSLog(@"Before firebase");
+    // Listen to class average and update THIS IS BREAKING SHIT
+//    Firebase* scoreRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://blistering-fire-5490.firebaseio.com/class/%@", self.className]];
+////    [[scoreRef childByAppendingPath:@"score"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
+//    [scoreRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+//        classAverageLabel.text = snapshot.value;
+//    }];
+    NSLog(@"After firebase");
 }
 
-#pragma mark NSURLConnection Methods
-// Used for HTTP request 
+// Used for HTTP request
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    
+    _fapiReceiver = [[NSMutableData alloc] init];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    
+        NSLog(@"DRD");
+    [_fapiReceiver appendData:data];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSLog(@"connDFL");
     NSError *error = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:fapiReceiver options:NSJSONReadingAllowFragments error:&error];
+    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:_fapiReceiver options:NSJSONReadingAllowFragments error:&error];
     
     [connection cancel];
+    NSLog(@"CDFL Done");
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
