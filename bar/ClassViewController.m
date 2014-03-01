@@ -50,15 +50,14 @@
     self.sliderValue = slider.value;
     
     // Set slider view to reflect sliderValue
-    [slider setValue:slider.value animated:YES];
-    
+    [slider setValue:self.sliderValue animated:YES];
+
     // Update the label view to reflect updated sliderValue
 	[scoreLabel setText:[NSString stringWithFormat:@"%d", self.sliderValue]];
-    
-    // Get a reference to the users score location
-//    Firebase* scoreRef = [[Firebase alloc] initWithUrl:@"https://resplendent-fire-2962.firebaseio.com/class/stats101/students/10"];
 
-//    [[scoreRef childByAppendingPath:@"to"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
+    // Get a reference to the users score location
+    Firebase* scoreRef = [[Firebase alloc] initWithUrl:@"https://fiery-fire-2615.firebaseio.com/class/stats101/students/3"];
+    [[scoreRef childByAppendingPath:@"score"] setValue:[NSString stringWithFormat:@"%d", self.sliderValue]];
 }
 
 @end

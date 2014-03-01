@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v10-OT-Hl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="-275"/>
+            <point key="canvasLocation" x="-270" y="-267"/>
         </scene>
         <!--Landing Page View Controller-->
         <scene sceneID="gqz-3v-slJ">
@@ -62,12 +62,12 @@
                         <outlet property="classTextField" destination="sYH-18-lJT" id="BMQ-Ph-c4z"/>
                         <outlet property="joinButton" destination="NAZ-7s-IHK" id="34B-Zu-Pa9"/>
                         <segue destination="hCK-W9-tvH" kind="push" identifier="validClassNameToClassView" id="fh9-nA-kdt"/>
-                        <segue destination="hCK-W9-tvH" kind="push" identifier="showClassNameSegue" id="ajr-pq-BUc"/>
+                        <segue destination="hCK-W9-tvH" kind="push" identifier="sendClassNameSegue" id="OZO-GU-iEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3o-jd-duK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="-275"/>
+            <point key="canvasLocation" x="165" y="-267"/>
         </scene>
         <!--Class View Controller-->
         <scene sceneID="W02-ID-qiD">
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVJ-pG-IQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-275"/>
+            <point key="canvasLocation" x="677" y="-267"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -132,6 +132,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ifY-Fm-xwD"/>
-        <segue reference="ajr-pq-BUc"/>
+        <segue reference="OZO-GU-iEe"/>
     </inferredMetricsTieBreakers>
 </document>
